@@ -1,2 +1,28 @@
-# mi-servidor-personal
-Infraestructura personal autogestionada mediante Docker y Cloudflare. Documentación de servicios de seguridad, redes y despliegue de aplicaciones bajo dominio propio.
+# 🏠 Mi Servidor Personal (HomeLab)
+
+Este repositorio documenta la arquitectura de mi servidor local, donde combino mis habilidades de **infraestructura IT** con el **diseño visual**.
+
+## 🚀 Tecnologías y Herramientas
+
+### 🛠️ Backend & DevOps
+- **Virtualización:** Docker & Docker Compose para el despliegue de servicios.
+- **Red:** Cloudflare Tunnels para acceso seguro sin apertura de puertos.
+- **Reverse Proxy:** Nginx Proxy Manager.
+- **Seguridad:** Gestión de credenciales con Vaultwarden.
+
+### 🎨 Diseño y Creatividad
+- **Software:** Adobe Photoshop & Adobe Illustrator.
+- **Uso:** Creación de diagramas de red, iconos personalizados y mockups para servicios web.
+
+---
+
+## 📐 Esquema de Conexión
+![Texto alternativo](url-de-la-imagen.png)
+
+## 📂 Estructura de archivos
+- `/docker-compose`: Archivos de configuración de los contenedores.
+- `/diagramas`: Documentación visual del servidor diseñada en Illustrator.
+
+---
+📬 **Hablemos:** [hola@enoelbautista.com](mailto:hola@enoelbautista.com)
+🔗 **ORCID:** [0009-0003-4300-4896](https://orcid.org/0009-0003-4300-4896)
