@@ -19,7 +19,7 @@ Este repositorio documenta la arquitectura de mi servidor local, donde combino m
 ## 📐 Esquema de Conexión
 
 <p align="center">
-  <img src="img/esquemade de conexion.svg" alt="Esquema de Red de Enoel Bautista" width="800">
+  <img src="img/Exquema de conexion.svg" alt="Esquema de Red de Enoel Bautista" width="800">
 </p>
 
 *Diagrama diseñado en Adobe Illustrator para documentar la arquitectura de red segura.*
