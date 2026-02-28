@@ -1,0 +1,62 @@
+services:
+  proxy_manager:
+    image: jc21/nginx-proxy-manager:2.14.0
+    container_name: nginx_proxy_manager
+    restart: always
+    #ports:        # Nota: No abrimos ningun puearto al router, el túnel entrará por la red interna
+      #- '80:80'   # Tráfico web normal
+      #- '81:81'   # panel de administración (puedes no abrir este en el router por seguridad)
+      #- '443:443' # Tráfico web seguro (SSL)
+    volumes:
+      - ./npm/data:/data
+      - ./npm/letsencrypt:/etc/letsencrypt
+    networks:
+      - red_interna
+
+  portfolio:
+    image: nginx:1.28.0-alpine
+    container_name: mi_portfolio
+    restart: always
+    volumes:
+      - ./portfolio:/usr/share/nginx/html:ro
+      - ./portfolio/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - red_interna
+
+  vaultwarden:
+    image: vaultwarden/server:1.35.3
+    container_name: gestor_passwords
+    restart: always
+    environment:
+      # configuracion el dominio
+      - DOMAIN=https://${VW_DOMAIN}
+      # Habilitar el panel de administración (/admin)
+      - ADMIN_TOKEN=${VW_ADMIN_TOKEN}
+      # Configuración de WebSocket para notificaciones en tiempo real
+      - WEBSOCKET_ENABLED=true
+      # Permitir o no nuevos registros (cambiar a false tras crear la cuenta)
+      - SIGNUPS_ALLOWED=false
+      # Configuración de SMTP (Necesario para invitar usuarios y alertas)
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_FROM=${SMTP_FROM}
+      - SMTP_PORT=587
+      - SMTP_SECURITY=starttls
+      - SMTP_USERNAME=${SMTP_FROM}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+    volumes:
+      - ./vaultwarden:/data
+    networks:
+      - red_interna
+
+  tunnel:
+    image: cloudflare/cloudflared:2026.2.0
+    container_name: cloudflare_tunnel
+    restart: always
+    command: tunnel --no-autoupdate run --token ${CF_TUNNEL_TOKEN}
+    networks:
+      - red_interna
+
+networks:
+  red_interna:
+    driver: bridge
+
