@@ -17,7 +17,12 @@ Este repositorio documenta la arquitectura de mi servidor local, donde combino m
 ---
 
 ## 📐 Esquema de Conexión
-![Texto alternativo]([url-de-la-imagen.png](https://raw.githubusercontent.com/enoelbautista/mi-servidor-personal/c2698d04885fb701ed95b170b48a89a2566075cf/img/Exquema%20de%20conexion.svg))
+
+<p align="center">
+  <img src="img/esquemade de conexion.svg" alt="Esquema de Red de Enoel Bautista" width="800">
+</p>
+
+*Diagrama diseñado en Adobe Illustrator para documentar la arquitectura de red segura.*
 
 ## 📂 Estructura de archivos
 - `/docker-compose`: Archivos de configuración de los contenedores.
